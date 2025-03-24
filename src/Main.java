@@ -5,51 +5,11 @@ public class Main {
     static String[] slotIcons = { "🍉", "🍓", "🍋", "🍀" ,"🔔" };
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("*****EGT*******");
-        System.out.print("Enter a balance in GEL ");
-        Integer balance = scanner.nextInt();
-        egtSlot(balance);
+        Student student1 = new Student("dato",21,"rogava");
+
+        System.out.println(student1.name);
+
     }
-    public static String egtSlot(Integer balance) {
-        Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-        while ( balance >= 15 ) {
-            System.out.println("Spin, yes or no ");
-            String answer = scanner.nextLine();
-            switch (answer) {
-                case "yes": {
-                    balance -= 15;
-                    Integer computerChoice1 =  random.nextInt(slotIcons.length);
-                    Integer computerChoice2 =  random.nextInt(slotIcons.length);
-                    Integer computerChoice3 =  random.nextInt(slotIcons.length);
-                    Integer computerChoice4 =  random.nextInt(slotIcons.length);
-                    System.out.printf("%s %s %s %s\n", slotIcons[computerChoice1],
-                    slotIcons[computerChoice2], slotIcons[computerChoice3], slotIcons[computerChoice4]);
-                    if ( computerChoice1.equals(computerChoice2) & computerChoice3 == 3 ) {
-                        balance += 75;
-                        System.out.println("YOU WON 65 GEL");
-                    }else if ( computerChoice1.equals(computerChoice2)  )  {
-                        balance += 15;
-                        System.out.println("YOU WON 15 GEL");
-                    }
-                    System.out.println("Balance: " + balance);
-                    continue;
-
-
-                }
-                case "no": {
-                    System.out.println("You finished the game");
-                    return "";
-                }
-            }
-
-        }
-        if ( balance <= 15 ) {
-            System.out.printf("Not enough balance to continue, You have left - %d GEL", balance);
-        }
-        return  "";
-    }
-
 }
 
 
@@ -80,6 +40,74 @@ public class Main {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//public static String egtSlot(Integer balance) {
+//    Random random = new Random();
+//    Scanner scanner = new Scanner(System.in);
+//    while ( balance >= 15 ) {
+//        System.out.println("Spin, yes or no ");
+//        String answer = scanner.nextLine();
+//        switch (answer) {
+//            case "yes": {
+//                balance -= 15;
+//                Integer computerChoice1 =  random.nextInt(slotIcons.length);
+//                Integer computerChoice2 =  random.nextInt(slotIcons.length);
+//                Integer computerChoice3 =  random.nextInt(slotIcons.length);
+//                Integer computerChoice4 =  random.nextInt(slotIcons.length);
+//                System.out.printf("%s %s %s %s\n", slotIcons[computerChoice1],
+//                        slotIcons[computerChoice2], slotIcons[computerChoice3], slotIcons[computerChoice4]);
+//                if ( computerChoice1.equals(computerChoice2) & computerChoice3 == 3 ) {
+//                    balance += 75;
+//                    System.out.println("YOU WON 65 GEL");
+//                }else if ( computerChoice1.equals(computerChoice2)  )  {
+//                    balance += 15;
+//                    System.out.println("YOU WON 15 GEL");
+//                }
+//                System.out.println("Balance: " + balance);
+//                continue;
+//
+//
+//            }
+//            case "no": {
+//                System.out.println("You finished the game");
+//                return "";
+//            }
+//        }
+//
+//    }
+//    if ( balance <= 15 ) {
+//        System.out.printf("Not enough balance to continue, You have left - %d GEL", balance);
+//    }
+//    return  "";
+//}
 
 
 
