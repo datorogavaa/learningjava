@@ -25,19 +25,31 @@ public class Main {
                     Integer computerChoice4 =  random.nextInt(slotIcons.length);
                     System.out.printf("%s %s %s %s\n", slotIcons[computerChoice1],
                     slotIcons[computerChoice2], slotIcons[computerChoice3], slotIcons[computerChoice4]);
+                    if ( computerChoice1.equals(computerChoice2) & computerChoice3 == 3 ) {
+                        balance += 75;
+                        System.out.println("YOU WON 65 GEL");
+                    }else if ( computerChoice1.equals(computerChoice2)  )  {
+                        balance += 15;
+                        System.out.println("YOU WON 15 GEL");
+                    }
+                    System.out.println("Balance: " + balance);
                     continue;
+
+
                 }
                 case "no": {
                     System.out.println("You finished the game");
+                    return "";
                 }
             }
 
         }
         if ( balance <= 15 ) {
-            System.out.printf("Not enough balance, You have left - %d GEL", balance);
+            System.out.printf("Not enough balance to continue, You have left - %d GEL", balance);
         }
         return  "";
     }
+
 }
 
 
