@@ -1,11 +1,144 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+    static String[] slotIcons = { "🍉", "🍓", "🍋", "🍀" ,"🔔" };
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("*****EGT*******");
+        System.out.print("Enter a balance in GEL ");
+        Integer balance = scanner.nextInt();
+        egtSlot(balance);
+    }
+    public static String egtSlot(Integer balance) {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        while ( balance >= 15 ) {
+            System.out.println("Spin, yes or no ");
+            String answer = scanner.nextLine();
+            switch (answer) {
+                case "yes": {
+                    balance -= 15;
+                    Integer computerChoice1 =  random.nextInt(slotIcons.length);
+                    Integer computerChoice2 =  random.nextInt(slotIcons.length);
+                    Integer computerChoice3 =  random.nextInt(slotIcons.length);
+                    Integer computerChoice4 =  random.nextInt(slotIcons.length);
+                    System.out.printf("%s %s %s %s\n", slotIcons[computerChoice1],
+                    slotIcons[computerChoice2], slotIcons[computerChoice3], slotIcons[computerChoice4]);
+                    continue;
+                }
+                case "no": {
+                    System.out.println("You finished the game");
+                }
+            }
+
+        }
+        if ( balance <= 15 ) {
+            System.out.printf("Not enough balance, You have left - %d GEL", balance);
+        }
+        return  "";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        String[] Jeiran =  {"paper", "scissor", "rock" };
+//
+//        while(true) {
+//            System.out.print("Je-i-ra-ni: ");
+//            String userChoice = scanner.nextLine().toLowerCase();
+//            Integer computerChoice = random.nextInt(Jeiran.length);
+//            switch (userChoice) {
+//                case "paper":
+//                    if (Jeiran[computerChoice].equals("rock")) {
+//                        System.out.println("Computer chose Rock, YOU WON!");
+//
+//                    }else if (Jeiran[computerChoice].equals("scissor")) {
+//                        System.out.println("Computer chose scissor, YOU LOST!");
+//                    }else {
+//                        System.out.println("Computer chose paper too, IT'S DRAW!");
+//                        continue;
+//                    }
+//                    return;
+//                case "rock":
+//                    if (Jeiran[computerChoice].equals("scissor")) {
+//                        System.out.println("Computer chose scissor, YOU WIN!");
+//                    }else if (Jeiran[computerChoice].equals("paper")) {
+//                        System.out.println("Computer chose paper, YOU LOST");
+//                    }else {
+//                        System.out.println("Computer chose Rock too, IT'S DRAW!");
+//                        continue;
+//                    }
+//                    return;
+//                case "scissor":
+//                    if (Jeiran[computerChoice].equals("rock")) {
+//                        System.out.println("Computer chose Rock, YOU LOST!");
+//                    }else if (Jeiran[computerChoice].equals("paper")) {
+//                        System.out.println("Computer chose paper, YOU WIN");
+//                    } else {
+//                        System.out.println("Computer chose scissor too, IT'S A DRAW!");
+//                        continue;
+//                    }
+//                    return;
+//            }
+//        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //    int x = 0;
 //    static double balance = 10000;
-    public static void main(String[] args) {
-        String[] x =  {"dato", "rogava" };
-        System.out.println(x);
+
 //        Scanner scanner = new Scanner(System.in);
 //
 //        System.out.print("Enter your age: ");
@@ -77,5 +210,3 @@ public class Main {
 //            }
 //        }while ( working );
 //        scanner.close();
-    }
-}
