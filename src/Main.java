@@ -1,14 +1,41 @@
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
-
+import java.io.FileWriter;
 public class Main {
-    static String[] slotIcons = { "🍉", "🍓", "🍋", "🍀" ,"🔔" };
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Student student1 = new Student("dato",21,"rogava");
+    public static void main(String[] args) throws UnsupportedAudioFileException, IOException {
+        String filePath = "src\\Message-Ringtone-Notification-RingtoneSMS-RingtoneMgs-RingtoneMessage-Tone-_ringtone.wav";
+        File file = new File(filePath);
+        try (Scanner scanner = new Scanner(System.in)) {
+            AudioInputStream audio = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            String response = "";
+            clip.open(audio);
+            while(!response.equals("Q")) {
+                System.out.println("S - start");
+                System.out.println("Q - quit");
+                System.out.println("Enter a choice: ");
+                response = scanner.nextLine().toUpperCase();
+                switch (response) {
+                    case "S" -> clip.start();
+                    case "Q" -> clip.stop();
+                    default -> System.out.println("invalid input");
 
-        System.out.println(student1.name);
+                }
+            }
 
+        } catch (Exception e) {
+            System.out.println("Something went wrong");
+        }
+        finally {
+            System.out.println("bye");
+        }
     }
 }
 
